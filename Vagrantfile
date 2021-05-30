@@ -29,6 +29,22 @@ Vagrant.configure("2") do |config|
 
     end # config.vm.define servers
 
+    # if this is the last machine
+    if i == M
+
+      config.vm.provision "shell" do |shell_provisioner|
+        shell_provisioner.inline = <<-SHELL
+          sudo zypper ref
+          sudo zypper -n in docker
+          sudo usermod -aG docker vagrant
+          sudo systemctl start docker
+          sudo systemctl enable docker
+          cat /vagrant/ssh_key_rke.pub >> /home/vagrant/.ssh/authorized_keys
+        SHELL
+      end
+
+    end # if-condition last machine
+
   end # each-loop servers
 
 end # Vagrant.configure
