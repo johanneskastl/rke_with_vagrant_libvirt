@@ -1,0 +1,23 @@
+nodes:
+    - address: 192.168.123.11
+      user: vagrant
+      ssh_key_path: ssh_key_rke
+      role:
+        - controlplane
+        - etcd
+        - worker
+    - address: 192.168.123.12
+      user: vagrant
+      ssh_key_path: ssh_key_rke
+      role:
+        - controlplane
+        - etcd
+        - worker
+    - address: 192.168.123.13
+      user: vagrant
+      ssh_key_path: ssh_key_rke
+      role:
+        - controlplane
+        - etcd
+        - worker
+cluster_name: rke_with_vagrant_libvirt
