@@ -20,4 +20,9 @@ nodes:
         - controlplane
         - etcd
         - worker
+    - address: 192.168.123.21
+      user: vagrant
+      ssh_key_path: ssh_key_rke
+      role:
+        - worker
 cluster_name: rke_with_vagrant_libvirt
