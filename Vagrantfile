@@ -1,5 +1,35 @@
 Vagrant.configure("2") do |config|
 
+  ###################################################################################
+  # define number of workers
+  W = 1
+
+  # provision W VMs as workers
+  (1..W).each do |i|
+
+    # name the VMs
+    config.vm.define "rkeworker#{i}" do |node|
+
+      # which image to use
+      node.vm.box = "opensuse/Leap-15.2.x86_64"
+
+      # sizing of the VMs
+      node.vm.provider "libvirt" do |lv|
+        lv.random_hostname = true
+        lv.memory = 1024
+        lv.cpus = 2
+      end
+
+      # set the hostname
+      node.vm.hostname = "rkeworker#{i}"
+
+      # set the IP address
+      node.vm.network "private_network", ip: "192.168.123.2#{i}"
+
+    end # config.vm.define workers
+
+  end # each-loop workers
+
   ###############################################
 
   # define number of servers
