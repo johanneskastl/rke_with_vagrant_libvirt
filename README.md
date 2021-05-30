@@ -1,8 +1,10 @@
 # rke_with_vagrant_libvirt
 
-Vagrant setup for building a RKE cluster with three controlplane nodes using the vagrant libvirt provider 
+**Branch cluster_with_workers**
 
-This setup creates three controlplane VMs using rke.
+Vagrant setup for building a RKE cluster with three controlplane nodes and one worker using the vagrant libvirt provider 
+
+This setup creates three controlplane VMs and one worker using rke.
 
 Default OS is openSUSE Leap 15.2, but that can be changed in the Vagrantfile. Same holds true for the sizing of the machines.
 
@@ -16,7 +18,7 @@ Please note that changing the OS in the Vagrantfile requires to rewrite the shel
 2. Fetch the box, per default this is `opensuse/Leap-15.2.x86_64`, using `vagrant box add opensuse/Leap-15.2.x86_64`.
 3. Make sure the machine where you want to run this on has enough RAM to allow running the three VMs. If not, adjust the sizes in the `Vagrantfile`.
 4. Run `vagrant up`
-5. Run `kubectl --kubeconfig kube_config_cluster.yml get nodes` and you should see your three controlplane nodes.
+5. Run `kubectl --kubeconfig kube_config_cluster.yml get nodes` and you should see your three controlplane nodes as well as the worker node.
 6. Party!
 
 ## Adjusting size in the Vagrantfile
