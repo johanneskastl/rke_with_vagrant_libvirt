@@ -10,7 +10,7 @@ Default OS is openSUSE Leap 15.2, but that can be changed in the Vagrantfile. Sa
 
 Please note that changing the OS in the Vagrantfile requires to rewrite the shell provisioner that make sure all prerequisites for rke are met (docker installed and running, ...).
 
-**There is a branch called `cluster_with_workers` which enhances this setup to install an additional worker-only node.**
+**This branch (`cluster_with_workers`) enhances the setup to install an additional worker-only node.**
 
 ## Vagrant
 
